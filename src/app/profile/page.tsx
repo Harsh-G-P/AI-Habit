@@ -131,7 +131,7 @@ export default function Profile() {
             className="relative"
           >
             <img
-              src={form.image || "/placeholder-avatar.png"}
+              src={form.image || "/cat.jpg"}
               alt="User Avatar"
               className="w-32 h-32 md:w-36 md:h-36 object-cover rounded-full border-4 border-green-200 shadow-md"
             />

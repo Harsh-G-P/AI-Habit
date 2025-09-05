@@ -20,16 +20,17 @@ export default function Navbar() {
 
   // Fetch user profile image
   const fetchUserImage = async () => {
-    try {
-      const res = await fetch("/api/user/update", { method: "GET" });
-      const data = await res.json();
-      if (data.success) {
-        setImage(data.user.image ? `${data.user.image}?t=${Date.now()}` : "");
-      }
-    } catch (err) {
-      console.error("Failed to fetch user image:", err);
+  try {
+    const res = await fetch("/api/user/update"); // no method override
+    const data = await res.json();
+    if (data.success) {
+      setImage(data.user.image ? `${data.user.image}?t=${Date.now()}` : "");
     }
-  };
+  } catch (err) {
+    console.error("Failed to fetch user image:", err);
+  }
+};
+
 
   // Run on mount and whenever session changes
   useEffect(() => {
