@@ -26,16 +26,6 @@ export const authOptions: NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   session: { strategy: "jwt" },
-  cookies: {
-    sessionToken: {
-      name: `__Secure-next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "none",   // ✅ allow session cookies inside iframe
-        secure: true,       // ✅ required for sameSite=none (Vercel = HTTPS, so it's fine)
-      },
-    },
-  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) token.id = (user as any).id;
